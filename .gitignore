@@ -1,0 +1,6 @@
+../.idea/
+../Pages/__pycache__/
+../Pages/locators/__pycache__/
+__pycache__/
+../__pycache__/
+../venv/
