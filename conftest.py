@@ -1,3 +1,5 @@
+
+
 import pytest
 from playwright.sync_api import sync_playwright, Playwright, Page
 
@@ -12,7 +14,8 @@ def init_playwright() -> Playwright:
 
 @pytest.fixture
 def init_browser(init_playwright):
-    chrome = init_playwright.chromium.launch(headless=False, slow_mo=1000)
+    headless = False
+    chrome = init_playwright.chromium.launch(headless=headless, slow_mo=1000)
     yield chrome
     chrome.close()
     print("browser has been closed")

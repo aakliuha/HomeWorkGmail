@@ -1,4 +1,6 @@
 from playwright.sync_api import Page
+from playwright.sync_api import TimeoutError
+
 
 class BasePage:
     """This class contains the high-level methods common for all pages"""
@@ -7,25 +9,27 @@ class BasePage:
 
     def navigate_to_url(self, url):
         self.page.goto(url)
-        return self
 
-    def find_element_by_xpath(self, xpath):
-        element = self.page.locator(xpath)
+    def get_element_by_locator(self, locator):
+        element = self.page.locator(locator)
         return element
 
-    def input_into_field(self, xpath, value):
-        element = self.find_element_by_xpath(xpath)
-        element.fill(value)
-        return self
+    def input_into_field(self, locator, value):
+        try:
+            element = self.get_element_by_locator(locator)
+            element.fill(value)
+        except TimeoutError:
+            print(f"element with {locator} locator wasn't found")
+            raise
 
-    def click(self, xpath):
-        element = self.find_element_by_xpath(xpath)
-        element.click()
-        return self
+    def click(self, locator):
+        try:
+            element = self.get_element_by_locator(locator)
+            element.click()
+        except TimeoutError:
+            print(f"element with {locator} locator wasn't found")
+            raise
 
-    def get_text(self, element):
-        text = element.innerText()
-        return text
 
 
 
