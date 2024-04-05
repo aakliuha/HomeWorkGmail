@@ -17,13 +17,13 @@ class LoginPage(BasePage):
         self.empty_password = LoginPageLocators.empty_password_element
         self.inbox_main = LoginPageLocators.inbox_main_element
 
-    def navigate_to_login_page(self, url: str) -> None:
+    def navigate_to_page(self, url: str) -> None:
         super().navigate_to_url(url)
 
-    def enter_email(self, value: str|int) -> None:
+    def enter_email(self, value: str) -> None:
         super().input_into_field(self.email_field, value)
 
-    def enter_password(self, value: str|int) -> None:
+    def enter_password(self, value: str) -> None:
         super().input_into_field(self.password_field, value)
 
     def click_email_next_btn(self) -> None:
@@ -34,8 +34,8 @@ class LoginPage(BasePage):
 
     @property
     def get_main_element(self) -> Locator:
-        main = super().get_element_by_locator(self.inbox_main)
-        return main
+        main_element = super().get_element_by_locator(self.inbox_main)
+        return main_element
 
     @property
     def get_incorrect_email_element(self) -> Locator:

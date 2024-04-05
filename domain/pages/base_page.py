@@ -14,7 +14,7 @@ class BasePage:
         element = self.page.locator(locator)
         return element
 
-    def input_into_field(self, locator: str, value: str|int) -> None:
+    def input_into_field(self, locator: str, value: str) -> None:
         try:
             element = self.get_element_by_locator(locator)
             element.fill(value)
