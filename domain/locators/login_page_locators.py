@@ -1,0 +1,11 @@
+class LoginPageLocators:
+    email_field = '//input[@type="email"]'
+    password_field = '//input[@type="password"]'
+    email_next_btn = '//*[@id="identifierNext"]'
+    password_next_btn = '//*[@id="passwordNext"]'
+    greeting = '//header[@class="R3PZhd"]/h1'
+    wrong_email_element = '//*[@class="Ekjuhf Jj6Lae"]'
+    wrong_password_element = '//*[@class="Ly8vae uSvLId"]'
+    empty_email_element = '//*[@class="Ekjuhf Jj6Lae"]'
+    empty_password_element = '//*[@class="Ly8vae uSvLId"]'
+    inbox_main_element = '//div[@role="main"]'
